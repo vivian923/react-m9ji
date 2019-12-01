@@ -1,0 +1,15 @@
+#footer{
+    width:100%;
+    height:0.55rem;
+    background:#fff;
+    position:fixed;
+    left:0;
+    bottom:0;
+}
+#footer ul{
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
