@@ -23,10 +23,14 @@ export const spell=()=>http.get({
 })
 
 export const brandApi=()=>http.get({
-    url:"/ajax//web/api/floors/v1",
+    url:"/ajax/web/api/floors/v1",
     data:{
         label:'891839589119832066',
         page:1,
         random:0
     }
+})
+
+export const classifyApi=()=>http.get({
+    url:"/ajax/web/api/products/category/v1"
 })

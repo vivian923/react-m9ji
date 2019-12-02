@@ -1,4 +1,4 @@
-import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register} from "../pages"
+import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail} from "../pages"
 
 export const TabBarRoute=[
     {
@@ -111,6 +111,15 @@ export const NoTabBarRoute=[
             requiredAuth:false
         }
     },
+
+    {
+        path:"/detail",
+        component:Detail,
+        meta:{
+            flag:false,
+            requiredAuth:false
+        },
+    }
     
 ]
 

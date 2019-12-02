@@ -1,6 +1,6 @@
-import {handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd} from "./actionType"
+import {handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd} from "./actionType"
 import {createAction} from "redux-actions"
-import {recommendApi,floors,spell,brandApi} from "api/recommend"
+import {recommendApi,floors,spell,brandApi,classifyApi,messageApi} from "api/recommend"
 import {historyApi,searchApi} from "api/search"
 import {cartRecommendApi} from "api/cart"
 export const goodsAction = ()=>{
@@ -109,3 +109,12 @@ export const sumAction=()=>{
 export const delAction=createAction(handleDel,(index)=>({
     index
 }))
+export const classifyAsyncAction=()=>{
+    let classifyAction = createAction(handleClassifyList,(data)=>({
+        data
+    }))
+    return async (dispatch)=>{
+        let data = await classifyApi()
+        dispatch(classifyAction(data))
+    }
+}

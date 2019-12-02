@@ -41,6 +41,13 @@
       "unicode_decimal": 58950
     },
     {
+      "icon_id": "1613829",
+      "name": "在线对比激活",
+      "font_class": "zaixianduibijihuo",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
       "icon_id": "1638197",
       "name": "购物车",
       "font_class": "gouwuche",
@@ -55,6 +62,13 @@
       "unicode_decimal": 58897
     },
     {
+      "icon_id": "1810275",
+      "name": "箱子",
+      "font_class": "icon-test",
+      "unicode": "e6e5",
+      "unicode_decimal": 59109
+    },
+    {
       "icon_id": "3304763",
       "name": "更多",
       "font_class": "gengduo",
@@ -67,6 +81,13 @@
       "font_class": "youjiantou",
       "unicode": "e641",
       "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "6249282",
+      "name": "通知",
+      "font_class": "tongzhi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
     },
     {
       "icon_id": "6525526",
@@ -116,6 +137,13 @@
       "font_class": "shouye",
       "unicode": "e613",
       "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "9974873",
+      "name": "走势图",
+      "font_class": "zoushitu",
+      "unicode": "e727",
+      "unicode_decimal": 59175
     }
   ]
 }
