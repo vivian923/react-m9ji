@@ -2,12 +2,17 @@ import React from "react"
 import { Section } from "./styled"
 import { List, Switch } from 'antd-mobile';
 import {Link} from "react-router-dom"
+import {loginNode} from "api/users"
+import {withRouter} from "react-router-dom"
+
+@withRouter
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checked: false,
+            checked: true,
             checked1: true,
+            color:false
         };
     }
     render() {
@@ -30,14 +35,14 @@ class Login extends React.Component {
                         <div className="icons">
                             <i className="iconfont">&#xe616;</i>
                         </div>
-                        <input placeholder="用户名/手机号" />
+                        <input placeholder="用户名/手机号" ref="account" onInput={this.handleColor.bind(this)}/>
                         <a href="true">x</a>
                     </div>
                     <div className="pwd">
                         <div className="icons">
                             <i className="iconfont">&#xe646;</i>
                         </div>
-                        <input placeholder="请输入密码" />
+                        <input type="password" placeholder="请输入密码"  ref="pwd" onInput={this.handleColor.bind(this)}/>
                         <a href="true">x</a>
                     </div>
                     <div className="expire">
@@ -54,7 +59,7 @@ class Login extends React.Component {
                         ></List.Item>
                     </div>
                 </div>
-                <a className="loginbtn" href="true">登录</a>
+                <div className={this.state.color===true?'color loginbtn':'loginbtn'} onClick={this.handleLogin.bind(this)}>登录</div>
                 <div className="pushRegister">
                     <Link className="register" to="/register">新用户注册</Link>
                     <a href="true">忘记密码</a>
@@ -69,6 +74,31 @@ class Login extends React.Component {
                 </div>
             </Section>
         )
+    }
+   async handleLogin(){
+        let username=this.refs.account.value;
+        let pwd=this.refs.pwd.value;
+        let data=await loginNode(username,pwd)
+        if(data.data.code===1){
+            alert("登录成功")
+            console.log(this.props.location.params)
+            let path=this.props.location.params?this.props.location.params.from:"/home";
+            this.props.history.push(path)
+        }else{
+            alert("登录失败")
+        }
+    }
+    handleColor(){
+        if(this.refs.account.value&&this.refs.pwd.value){
+            this.setState({
+                color:true
+            }) 
+        }else{
+            this.setState({
+                color:false
+            }) 
+        }
+        
     }
 }
 

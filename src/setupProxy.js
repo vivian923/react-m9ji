@@ -6,5 +6,9 @@ module.exports  = (app)=>{
         pathRewrite:{
             "^/ajax":""
         }
+    })),
+    app.use("/users",proxy({
+        target:"http://10.60.13.245:9000",
+        changeOrigin:true,
     }))
 }

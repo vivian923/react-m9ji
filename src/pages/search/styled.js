@@ -145,7 +145,8 @@ header{
         width:100%;
         min-height:4rem;
         background:#fff;
-        display:none
+        position:absolute;
+        z-index:2;
         a{
             height:.4rem;
             padding: 0 .1rem;
@@ -157,10 +158,16 @@ header{
                 display:flex;
                 i{
                     font-size:.16rem;
+                    color:#333;
                 }
-                span{
-                        font-size:.14rem;
+                span{   
+                        font-size:.129rem;
                         margin: 0 .1rem;
+                        color:#333;
+                        width:3.1rem;
+                        text-overflow: ellipsis;
+                        white-space:nowrap;
+                        overflow:hidden;
                 }
             }
             i{

@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const Section=styled.section`
     height:100%;
     background:#fff;
-    overflow-y: auto;
     padding-top:.44rem;
     header{
         width:100%;
@@ -88,7 +87,7 @@ export const Section=styled.section`
             width:1.932rem;
             height:.9rem;
             margin-left:.1rem;
-            background:#fff
+            background:#fff;
             p{
                 color: #000;
                 font-size:.12rem;
@@ -129,13 +128,23 @@ export const Section=styled.section`
                     font-weight:500
                 }
             }
-            
+            .del{
+                font-size:.10rem;
+                color:#fff;
+                background:#f21c1c;
+                width:.4rem;
+                height:.2rem;
+                text-align:center;
+                line-height:.2rem;
+                border-radius:.15rem;
+                margin-left:.3rem;
+            }
             .numbtn{
                 width:.56rem;
                 height:.18rem;
                 display:flex;
                 input{
-                    font-size:.12rem
+                    font-size:.12rem;
                     height:.16rem;;
                     line-height: .16rem;
                     text-align: center;
@@ -143,8 +152,9 @@ export const Section=styled.section`
                     border-top: 1px solid #f5f5f5;
                     border-bottom: 1px solid #f5f5f5;
                 }
-                a{
-                    color: #ccc;
+                em{
+                    display:block;
+                    color: #666;
                     font-size: .12rem;
                     width:.16rem;
                     height:.16rem;
@@ -153,10 +163,10 @@ export const Section=styled.section`
                     background-color: #f5f5f5;
                     border: 1px solid #f5f5f5;
                 }
-                a:nth-of-type(1){
+                em:nth-of-type(1){
                     border-radius: 12px 0 0 12px;
                 }
-                a:nth-of-type(2){
+                em:nth-of-type(2){
                     border-radius: 0 12px 12px 0;
                 }
             }
@@ -164,7 +174,7 @@ export const Section=styled.section`
     }
     .recommend{
         width:3.532rem;
-        min-height:19.092rem;
+        min-height:8.092rem;
         padding:0 .11rem;
         .banner{
             height:.4074rem;
@@ -176,7 +186,7 @@ export const Section=styled.section`
     }
     .recommend ul{
         width:3.532rem;
-        min-height:18.624rem;
+        min-height:6.624rem;
         padding:.03rem 0 .5rem;
         display:flex;
         flex-wrap:wrap;
@@ -201,8 +211,11 @@ export const Section=styled.section`
             p{
                 margin-top: 5px;
                 font-size:.14rem;
+                width:1.5rem;
                 text-overflow:ellipsis;
-                overflow:hidden
+                white-space:nowrap;
+                overflow:hidden;
+
             }
             .price{
                 display:flex;

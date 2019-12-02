@@ -7,6 +7,7 @@ class Home extends React.Component {
     constructor() {
         super()
         this.state={
+            flag:0,
             list:[
                 {
                     text:"推荐",
@@ -54,8 +55,8 @@ class Home extends React.Component {
                     </div>
                     <ul className="slider">
                         {
-                            list.map((item)=>(
-                                <li onClick={this.handleTo.bind(this,item.path)} key={item.path}>{item.text}</li>
+                            list.map((item,index)=>(
+                            <li onClick={this.handleTo.bind(this,item.path,index)} key={item.path} className={this.state.flag===index?'active':''}>{item.text}</li>
                             ))
                         }
                     </ul>
@@ -63,7 +64,10 @@ class Home extends React.Component {
 
         )
     }
-    handleTo(path){
+    handleTo(path,index){
+        this.setState({
+            flag:index
+        })
         this.props.history.push(path)
     }
     handleSearch(){

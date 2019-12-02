@@ -10,7 +10,7 @@ export const Section = styled.section`
         display:flex;
         opacity:.95;
         background-color: rgba(255, 255, 255, 0.95);
-        border-bottom:1px solid #f5f5f5
+        border-bottom:1px solid #f5f5f5;
         .back{
             width:.44rem;
             height:.44rem;
@@ -54,7 +54,7 @@ export const Section = styled.section`
         position:absolute;
         right:0;
         font-size:.14rem;
-        border:1px solid #f5f5f5
+        border:1px solid #f5f5f5;
         text-align:center;
         line-height:.24rem;
     }
@@ -108,9 +108,9 @@ export const Section = styled.section`
         }
         span:nth-of-type(2){
             font-size:.14rem;
-            margin-left:.06rem;
+            margin-left:.06rem
             a{
-                color:#1890ff
+                color:#1890ff;
             }
         }
     }
@@ -122,9 +122,12 @@ export const Section = styled.section`
         margin:.2rem;
         margin-top:.4rem;
         border-radius:.45rem;
-        background-color:#f21c1c;
+        background-color:#dfdfdf;
         color:#fff;
-        letter-spacing:.05rem
+        letter-spacing:.05rem;
         font-size:.14rem;
+    }
+    .color{
+        background-color:#f21c1c
     }
 `

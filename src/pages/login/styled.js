@@ -118,9 +118,12 @@ export const Section = styled.section`
         margin:.2rem;
         margin-top:.4rem;
         border-radius:.45rem;
-        background-color:#f21c1c;
+        background-color:#dfdfdf;
         color:#fff;
         letter-spacing:.05rem
+    }
+    .color{
+        background-color:#f21c1c
     }
     .pushRegister{
         margin:.2rem;

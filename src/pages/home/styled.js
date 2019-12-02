@@ -50,6 +50,10 @@ export const Header =styled.header`
         overflow-x:auto;
         display:flex;
         margin-top:-.05rem;
+        .active{
+            font-size:.16rem;
+            opacity:1
+        }
         li{
             font-size:.15rem;
             margin:0 11px;
