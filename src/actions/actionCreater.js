@@ -1,4 +1,4 @@
-import {handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd} from "./actionType"
+import {handleClassifyList,handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd} from "./actionType"
 import {createAction} from "redux-actions"
 import {recommendApi,floors,spell,brandApi,classifyApi,messageApi} from "api/recommend"
 import {historyApi,searchApi} from "api/search"
