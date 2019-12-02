@@ -55,3 +55,8 @@ export const Recommend = Loadable({
     loader:()=>import("./recommend"),
     loading:Loading
 })
+
+export const Detail = Loadable({
+    loader:()=>import("./detail"),
+    loading:Loading
+})

@@ -1,6 +1,6 @@
-import {handleGoodsList,handleSpell,handleBrand} from "./actionType"
+import {handleGoodsList,handleSpell,handleBrand,handleClassifyList} from "./actionType"
 import {createAction} from "redux-actions"
-import {recommendApi,floors,spell,brandApi} from "api/recommend"
+import {recommendApi,floors,spell,brandApi,classifyApi,messageApi} from "api/recommend"
 
 export const goodsAction = ()=>{
     let goodsAction = createAction(handleGoodsList,(data,data2)=>({
@@ -35,5 +35,15 @@ export const brandAction=()=>{
     return async(dispatch)=>{
         let data =await brandApi()
         dispatch(brandAction(data.data.container.floor[10].content))
+    }
+}
+
+export const classifyAsyncAction=()=>{
+    let classifyAction = createAction(handleClassifyList,(data)=>({
+        data
+    }))
+    return async (dispatch)=>{
+        let data = await classifyApi()
+        dispatch(classifyAction(data))
     }
 }
