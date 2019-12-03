@@ -1,6 +1,6 @@
-import {handleClassifyList,handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd} from "./actionType"
+import {handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList} from "./actionType"
 import {createAction} from "redux-actions"
-import {recommendApi,floors,spell,brandApi,classifyApi,messageApi} from "api/recommend"
+import {recommendApi,floors,spell,brandApi,classifyApi,robListApi} from "api/recommend"
 import {historyApi,searchApi} from "api/search"
 import {cartRecommendApi} from "api/cart"
 export const goodsAction = ()=>{
@@ -116,5 +116,15 @@ export const classifyAsyncAction=()=>{
     return async (dispatch)=>{
         let data = await classifyApi()
         dispatch(classifyAction(data))
+    }
+}
+
+export const limitTimeAsyncAction=()=>{
+    let limitTimeAction = createAction(handlelimitTimeList,(data)=>({
+        data
+    }))
+    return async (dispatch)=>{
+        let data = await robListApi()
+        dispatch(limitTimeAction(data))
     }
 }

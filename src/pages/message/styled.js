@@ -84,7 +84,6 @@ export const Content = styled.div`
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            display:none;
             img{
                 width:.6rem;
                 height:.6rem;
@@ -157,6 +156,73 @@ export const Content = styled.div`
                     }
                 }
             }
+        }
+
+        .headerLine{
+            width:100%;
+            height:100%;
+            overflow-y: auto;
+            .headerLine_con{
+                width:3.45rem;
+                min-height:2.685rem;
+                margin:.56rem .15rem .15rem;
+                position: relative;
+                box-shadow: 0 1px 10px 0 rgba(0,0,0,.1);
+                span{
+                    position:absolute;
+                    top: -.3rem;
+                    left: 50%;
+                    transform: translate(-50%);
+                    border-radius: .11rem;
+                    background-color: #dfdfdf;
+                    padding: 0 .08rem;
+                    height: .18rem;
+                    line-height: .18rem;
+                    font-size: .1rem;
+                    color: #fff;
+                }
+                img{
+                    width: 100%;
+                    border-radius: 4px 4px 0 0;
+                }
+                .block{
+                    width:3.45rem;
+                    min-height:1.125rem;
+                    box-sizing:border-box;
+                    padding:.15rem .1rem;
+                    background:#fff;
+                    h1{
+                        font-size:.15rem;
+                        color:#333;
+                        font-weight:900;
+                    }
+                    .msg_con{
+                        min-height: .305rem;
+                        font-size:.14rem;
+                        color:#9c9c9c;
+                        box-sizing:border-box;
+                        padding-bottom:.1rem;
+                        margin:.1rem 0 .15rem;
+                        border-bottom: .5px dashed #bfbfbf;
+                        line-height: 20px;
+                    }
+                    .detail{
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        em{
+                            font-size:.12rem;
+                            color:#333;
+                        }
+                        i{
+                            font-size:.12rem;
+                        }
+                    }
+                }
+            }
+        }
+        .isnone{
+            display:none;
         }
     }
 `

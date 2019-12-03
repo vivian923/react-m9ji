@@ -34,3 +34,9 @@ export const brandApi=()=>http.get({
 export const classifyApi=()=>http.get({
     url:"/ajax/web/api/products/category/v1"
 })
+
+
+export const robListApi=()=>http.get({
+    url:"/ajax/web/api/floors/specialEnjoy/v1"
+})
+

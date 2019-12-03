@@ -60,3 +60,14 @@ export const Detail = Loadable({
     loader:()=>import("./detail"),
     loading:Loading
 })
+
+export const LimitTime = Loadable({
+    loader:()=>import("./limitTime"),
+    loading:Loading
+})
+
+
+export const Sort = Loadable({
+    loader:()=>import("./sort"),
+    loading:Loading
+})
