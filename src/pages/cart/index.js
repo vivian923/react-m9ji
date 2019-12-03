@@ -2,14 +2,23 @@ import React from "react"
 import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
 import { Section } from "./styled"
+import {withRouter} from "react-router-dom"
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 class Cart extends React.Component {
+
     render() {
-        let { selectAll, goodsList, recommend,allprice,allnum} = this.props
+        let { selectAll,  recommend} = this.props
+        let goodsList=sessionStorage.getItem("cart")?JSON.parse(sessionStorage.getItem("cart")):[]
+        let num=0, price=0;
+        for(var i=0;i<goodsList.length;i++){
+            num+=goodsList[i].num;
+            price+=goodsList[i].price*goodsList[i].num
+        }
         return (
             <Section>
                 <header>
-                    <a href="true" className="iconfont back">&#xe609;</a>
+                    <div href="true" className="iconfont back" onClick={this.handleBack.bind(this)}>&#xe609;</div>
                     <span>购物车(2)</span>
                     <div className="management">
                         <a href="true">管理</a>
@@ -19,7 +28,7 @@ class Cart extends React.Component {
                 <div className="cart">
                     {
                         goodsList.map((item, index) => (
-                            <div className="cartBox" key={item.id}>
+                            <div className="cartBox" key={index}>
                                 <input type="checkbox" checked={item.flag} onChange={this.props.handleChangeItem.bind(this, index)} className="select" />
                                 <div className="cartContainer">
                                     <img src={item.img} alt="true"></img>
@@ -76,9 +85,9 @@ class Cart extends React.Component {
                             <input type="checkbox" checked={selectAll} id="all" onChange={this.props.handleChange.bind(this)} /><label htmlFor="id">全选</label>
                         </div>
                         <div className="txt">
-                        <p>合计 : <span>￥{sessionStorage.getItem("price")?JSON.parse(sessionStorage.getItem("price")):allprice}</span></p>
+                        <p>合计 : <span>￥{price}</span></p>
                         </div>
-                            <button>去结算({sessionStorage.getItem("num")?JSON.parse(sessionStorage.getItem("num")):allprice})</button>
+                            <button>去结算({num})</button>
                     </div>
                 </footer>
             </Section>
@@ -88,6 +97,10 @@ class Cart extends React.Component {
     componentDidMount() {
         this.props.handleCartRecommend()
         this.props.handleSum()
+
+    }
+    handleBack(){
+        this.props.history.goBack()
     }
 }
 export default Cart

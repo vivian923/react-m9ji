@@ -19,7 +19,7 @@ class Login extends React.Component {
         return (
             <Section>
                 <header>
-                    <a className="iconfont back" href="true">&#xe609;</a>
+                    <div className="iconfont back" onClick={this.handleBack.bind(this)}>&#xe609;</div>
                     <span>登录</span>
                     <div className="management">
                         <i className="iconfont">&#xe655;</i>
@@ -99,6 +99,9 @@ class Login extends React.Component {
             }) 
         }
         
+    }
+    handleBack(){
+        this.props.history.goBack()
     }
 }
 

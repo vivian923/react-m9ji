@@ -10,6 +10,7 @@ export const handleAdd="HANDLE_ADD"
 export const handleReduce="HANDLE_REDUCE"
 export const handleSum="SUM"
 export const handleDel="DEL"
+export const handleNews="NEWS"
 
 
 //分类列表

@@ -6,9 +6,12 @@ import {connect} from "react-redux"
 import {mapStateToProps,mapDispatchToProps} from "./mapStore"
 @connect(mapStateToProps,mapDispatchToProps)
 class TabBar extends React.Component{
-
     render(){
-        let{allnum}=this.props
+        let goodsList=sessionStorage.getItem("cart")?JSON.parse(sessionStorage.getItem("cart")):[]
+        let num=0;
+        for(var i=0;i<goodsList.length;i++){
+            num+=goodsList[i].num;
+        }
         return(
             <TabBox>
                 <ul>
@@ -19,7 +22,7 @@ class TabBar extends React.Component{
                                     <i className="iconfont">{item.icon}</i>
                                     <span>{item.text}</span>
                                    {
-                                       item.bubble?<span className="bubble">{allnum}</span>:''
+                                       item.bubble?<span className="bubble">{num}</span>:''
                                    }
                                 </NavLink>
                             </li>

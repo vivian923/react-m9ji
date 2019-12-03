@@ -60,3 +60,8 @@ export const Detail = Loadable({
     loader:()=>import("./detail"),
     loading:Loading
 })
+
+export const TopLine = Loadable({
+    loader:()=>import("./topLine"),
+    loading:Loading
+})

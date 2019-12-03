@@ -14,6 +14,17 @@ export const Section = styled.div`
         text-align:center;
         padding:0.075rem .15rem;
         box-sizing:border-box;
+        .swiper_box{
+            width:100%;
+            height:100%;
+            overflow:hidden;
+            .swiper-container{
+                z-index:0
+            }
+        .swiper-container .swiper-pagination{
+           bottom:-.13rem;
+        }
+        }
         img{
             width:100%;
             height:100%
@@ -90,6 +101,7 @@ export const Section = styled.div`
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow:hidden;
+                    color:#333
                 }
             }
             .fpic{
@@ -162,7 +174,8 @@ export const Section = styled.div`
         justify-content:space-between;
         flex-wrap: wrap;
         align-content: flex-start;
-        div{
+        a{
+            display:block;
             width:1.6875rem;
             height:2.364rem;
             margin-top:0.075rem;
@@ -172,7 +185,7 @@ export const Section = styled.div`
             border-radius: 3px;
         }
     }
-    .goods div{
+    .goods a{
         img{
             width:1.5rem;
             height:1.5rem;
@@ -193,7 +206,7 @@ export const Section = styled.div`
             height:0.412rem;
         }
     }
-    .goods div .detail{
+    .goods a .detail{
         .pname{
             margin:.05rem .15rem;
             text-overflow: ellipsis;
