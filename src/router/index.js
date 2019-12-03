@@ -1,4 +1,4 @@
-import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail,LimitTime,Sort} from "../pages"
+import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail,LimitTime,TopLine,Sort} from "../pages"
 
 export const TabBarRoute=[
     {
@@ -47,6 +47,14 @@ export const TabBarRoute=[
                     requiredAuth:false
                 }
             },
+            {
+                path:"/home/topLine",
+                component:TopLine,
+                meta:{
+                    flag:true,
+                    requiredAuth:false
+                }
+            }
 
         ]
     },
@@ -122,7 +130,7 @@ export const NoTabBarRoute=[
     },
 
     {
-        path:"/detail",
+        path:"/detail/:ppid",
         component:Detail,
         meta:{
             flag:false,

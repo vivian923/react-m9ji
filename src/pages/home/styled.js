@@ -46,6 +46,7 @@ export const Header =styled.header`
     }
         .slider{
         width:100%;
+        
         height:.4rem;
         overflow-x:auto;
         display:flex;

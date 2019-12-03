@@ -2,7 +2,8 @@ import React from "react"
 import {Section} from "./styled"
 import {connect} from "react-redux"
 import {mapStateToProps,mapDispatchToProps} from "./mapStore"
-
+import {NavLink} from "react-router-dom"
+import SwiperBar from "../../common/swiperBar"
 @connect(mapStateToProps,mapDispatchToProps)
 
 class Recommend extends React.Component{
@@ -18,7 +19,7 @@ class Recommend extends React.Component{
             <Section>
                <div className="bg"></div>
                 <div className="lbpic">
-                    <img src="https://img2.ch999img.com/newstatic/1377/01420e55da11a01b.jpg.webp" alt="true"></img>
+                    <SwiperBar/>
                 </div>
                 <div className="tips">
                     <img src="https://img2.ch999img.com/newstatic/1377/c12348e35e3868.png.webp" alt="true"></img>
@@ -92,28 +93,30 @@ class Recommend extends React.Component{
                 <div className="goods">
                     {
                         goodsList.map((item,index)=>(
-                            <div key={index}>
+                            <NavLink key={index} to={"/detail/"+item.ppid}>
                                 <img src={item.imagePath} alt="true"></img>
                                 <p className="introbg"><span>{item.sellingPoint}</span></p>
                                 <div className="detail">
                                     <p className="pname">{item.title}</p>
                                     <p className="ppprice">￥{item.price}</p>
                                 </div>
-                            </div>
+                            </NavLink>
                         ))
                     }
                 </div>
                 <div className="nomore">没有更多了</div>
-                <a href="true" className="gotop" style={{display:this.state.codeType===true?'block':'none'}} onClick={this.handleGotop.bind(this)}>
+                <div href="true" className="gotop" style={{display:this.state.codeType===true?'block':'none'}} onClick={this.handleGotop.bind(this)}>
                     <img alt="true" src="data:image/png;base64,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"></img>
-                </a>
+                </div>
             </Section>
         )
     }
     componentDidMount(){
         this.props.handleFind()
         window.addEventListener('scroll',this.bindScroll.bind(this))
+       
     }
+    
     handleGotop(){
         window.scrollTo(0,0);
     }
@@ -129,6 +132,7 @@ class Recommend extends React.Component{
             })
         }
     }
+    
 }
 
 export default Recommend

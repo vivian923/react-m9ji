@@ -5,7 +5,7 @@ import Layout from "layout"
 export default (routes) => {
 
 
-    function isLayout(route) {
+    function isLayout(route,match) {
         if (route.meta.flag) {
             return (
                 <Layout path={route.path} key={route.path}>
@@ -13,13 +13,13 @@ export default (routes) => {
                 </Layout>
             )
         } else {
-            return <route.component/>
+            return <route.component match={match}/>
         }
     }
 
 
 
-    function isLogin(route) {
+    function isLogin(route,match) {
         if (route.path !== "/login" && route.meta.requiredAuth) {
             if (Cookies.get("token")) {
                 return isLayout(route)
@@ -27,7 +27,7 @@ export default (routes) => {
                 return <Redirect to={{ pathname: "/login", params: { from: route.path } }} />
             }
         } else {
-            return isLayout(route)
+            return isLayout(route,match)
         }
     }
 
@@ -37,7 +37,7 @@ export default (routes) => {
         return <Route path={childNodes.path} key={childNodes.path} render={() => {
             return (
                 <Fragment>
-                    <Route component={childNodes.component} />
+                    <Route component={childNodes.component}  exact/>
                     <Switch>
                         {
                             childNodes.children.map((child) => {
@@ -48,7 +48,7 @@ export default (routes) => {
                                 }
                             })
                         }
-                        <Redirect from={childNodes.path} to={childNodes.children[0].path} />
+                        <Redirect from={childNodes.path} to={childNodes.children[0].path}  exact/>
                     </Switch>
                 </Fragment>
             )
@@ -60,8 +60,8 @@ export default (routes) => {
         if (route.children) {
             return childrenMap(route);
         } else {
-            return <Route path={route.path} key={route.path} render={() => {
-                return isLogin(route)
+            return <Route path={route.path} key={route.path} render={({match}) => {
+                return isLogin(route,match)
             }} />
         }
     })

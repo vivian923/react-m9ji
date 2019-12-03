@@ -31,7 +31,7 @@ class Home extends React.Component {
                 },
                 {
                     text:"头条",
-                    path:"ff"
+                    path:"/home/topLine"
                 },
             ]
         }

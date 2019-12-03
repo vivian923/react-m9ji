@@ -2,9 +2,6 @@ import React from "react"
 import { Main,Header, Content} from "./styled";
 
 class Mine extends React.Component{
-    constructor(){
-        super()
-    }
     render(){
         return(
             <Main>
@@ -22,7 +19,7 @@ class Mine extends React.Component{
                     <div className="bg"></div>
                     <div className="info">
                         <div className="personvip">
-                            <a href="#">
+                            <a href="true">
                                 <img src="https://img2.ch999img.com/newstatic/1381/d43534a496b0c8.png.webp" alt="true"/>
                             </a>
                             <div className="pinfo">

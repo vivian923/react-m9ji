@@ -1,8 +1,9 @@
-import {handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList} from "./actionType"
+import {handleNews,handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList} from "./actionType"
 import {createAction} from "redux-actions"
 import {recommendApi,floors,spell,brandApi,classifyApi,robListApi} from "api/recommend"
 import {historyApi,searchApi} from "api/search"
 import {cartRecommendApi} from "api/cart"
+import {topLineApi} from "api/topLine"
 export const goodsAction = ()=>{
     let goodsAction = createAction(handleGoodsList,(data,data2)=>({
         data:data,
@@ -109,6 +110,7 @@ export const sumAction=()=>{
 export const delAction=createAction(handleDel,(index)=>({
     index
 }))
+
 export const classifyAsyncAction=()=>{
     let classifyAction = createAction(handleClassifyList,(data)=>({
         data
@@ -126,5 +128,15 @@ export const limitTimeAsyncAction=()=>{
     return async (dispatch)=>{
         let data = await robListApi()
         dispatch(limitTimeAction(data))
+    }
+}
+export const newsAction=(page)=>{
+    let newsAction = createAction(handleNews,(data)=>({
+        data
+    }))
+    return async (dispatch)=>{
+        let data = await topLineApi(page)
+        let info=data.data.container.floor[1]?data.data.container.floor[1].content:data.data.container.floor[0].content
+        dispatch(newsAction(info))
     }
 }

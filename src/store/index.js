@@ -6,6 +6,7 @@ import search from "./reducers/search"
 import cart from "./reducers/cart"
 import classify from "./reducers/classify";
 import rob from "./reducers/rob";
+import topLine from "./reducers/topLine"
 import {composeWithDevTools} from "redux-devtools-extension"
 import reduxThunk from "redux-thunk"
 const reducer = combineReducers({
@@ -15,7 +16,8 @@ const reducer = combineReducers({
     search,
     cart,
     classify,
-    rob
+    rob,
+    topLine
 })
 
 const store =createStore(reducer,composeWithDevTools(applyMiddleware(reduxThunk)))

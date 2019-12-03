@@ -99,6 +99,7 @@ export const Section=styled.section`
                 padding: 1px 6px 1px 8px;
                 margin-top:.05rem;
                 margin-bottom:.1rem;
+                justify-content:space-between;
                 span{
                     font-size:.1rem;
                     color: #555;

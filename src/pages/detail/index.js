@@ -1,15 +1,22 @@
 import React from "react";
-import {Container, Header,Main, Footer} from "./styled"
+import { Container, Header, Main, Footer } from "./styled"
 
-class Detail extends React.Component{
-    constructor(){
+import { detailApi } from "api/detail"
+import {withRouter} from "react-router-dom"
+@withRouter
+class Detail extends React.Component {
+    constructor() {
         super()
+        this.state = {
+            info: {}
+        }
     }
-    render(){
-        return(
+    render() {
+        let { info } = this.state;
+        return (
             <Container>
                 <Header>
-                    <div className="back">
+                    <div className="back" onClick={this.handleBack.bind(this)}>
                         <i className="iconfont">&#xe609;</i>
                     </div>
                     <div className="headerNav">
@@ -23,18 +30,18 @@ class Detail extends React.Component{
                 </Header>
                 <Main>
                     <div className="slider">
-                        <img src="https://img2.ch999img.com/pic/product/800x800/20191126094557106.jpg.webp" alt="true"/>
+                        <img src={info.imagePath} alt="true" ref="img" />
                         <span>1/1</span>
                     </div>
                     <div className="describe">
                         <p className="product-title">
-                            苹果 AirPods 2代 蓝牙无线耳机 白色 配有线充电盒版 自动开启自动连接无线
+                            <span ref="name">{info.productName}</span> <span ref="skuname">{info.skuName}</span><span ref="tags">{info.tags}</span>
                         </p>
-                        <p className="product-characteristic">
-                            【火热销售】支持嘿 Siri，全新的 Apple H1 耳机芯片
+                        <p className="product-characteristic" ref="profile">
+                            {info.profile}
                         </p>
-                        <p className="product-price">
-                            ￥1099
+                        <p className="product-price" ref="price">
+                            ￥{info.price}
                         </p>
                         <div className="newman">
                             <p>新人专享全场通用9元优惠,领券<span>立减9元</span></p>
@@ -79,9 +86,9 @@ class Detail extends React.Component{
                     </div>
                     <div className="cart">
                         <i className="iconfont">&#xe60c;</i>
-                        <span>购物车</span>
+                        <span onClick={this.handlePush.bind(this)}>购物车</span>
                     </div>
-                    <div className="joincart">
+                    <div className="joincart" onClick={this.handleAddCart.bind(this)}>
                         加入购物车
                     </div>
                     <div className="quicklibuy">
@@ -91,6 +98,33 @@ class Detail extends React.Component{
                 </Footer>
             </Container>
         )
+    }
+    async componentDidMount() {
+        let ppid = this.props.match.params.ppid
+        let data = await detailApi(ppid)
+        this.setState({
+            info: data.data
+        })
+    }
+    handleAddCart(){
+        let img=this.refs.img.src;
+        let title=this.refs.name.innerHTML;
+        let config=this.refs.skuname.innerHTML;
+        let price=Number(this.refs.price.innerHTML.replace("￥",''));
+        let id=this.state.info.ppid;
+        let flag=true; let num =1
+        let info ={
+            img,title,config,price,id,flag,num
+        }
+        let cart =sessionStorage.getItem("cart")?JSON.parse(sessionStorage.getItem("cart")):[]
+        cart.push(info)
+        sessionStorage.setItem("cart",JSON.stringify(cart))
+    }
+    handlePush(){
+        this.props.history.push("/cart")
+    }
+    handleBack(){
+        this.props.history.goBack()
     }
 }
 

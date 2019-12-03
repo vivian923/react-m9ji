@@ -81,13 +81,12 @@ export const Main = styled.div`
         }
         .product-characteristic{
             margin-top:.05rem;
-            height: .19rem;
             color:#F21C1C;
             font-size:.13rem;
             line-height:.19rem;
         }
         .product-price{
-            font-size:.22rem;
+            font-size:.21rem;
             color:#F21C1C;
             margin:.05rem 0;
         }
@@ -155,6 +154,9 @@ export const Footer = styled.div`
     height: .49rem;
     border-top: 1px solid #eee;
     display:flex;
+    .cart{
+        border-right:1px solid #eee;
+    }
     .service,.collection,.cart{
         width:.55rem;
         height:.48rem;

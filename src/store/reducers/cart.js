@@ -5,26 +5,7 @@ const defaultState={
     recommend:[],
     allnum:0,
     allprice:0,
-    goodsList:[
-        {
-            img:"https://img2.ch999img.com/pic/product/440x440/20191122215703319.jpg",
-            title:"华为 Mate 30 （TAS-AL00）全网通4G版 亮黑色 6GB+128GB ",
-            config:"亮黑色 6GB+128GB  官方标配",
-            price:3999,
-            id:1,
-            flag:true,
-            num:1
-        },
-        {
-            img:"https://img2.ch999img.com/pic/product/440x440/20191122215703319.jpg",
-            title:"华为 Mate 30 （TAS-AL00）全网通4G版 亮黑色 6GB+128GB ",
-            config:"亮黑色 6GB+128GB  官方标配",
-            price:3999,
-            id:2,
-            flag:true,
-            num:1
-        }
-    ]
+    goodsList:[]
 }
 
 export default handleActions({
@@ -47,24 +28,32 @@ export default handleActions({
             }
         }
         checkedItemState.selectAll=sign;
+        
         return checkedItemState
     },
     [handleCartRecommend]:(state,action)=>{
         let recommendState=JSON.parse(JSON.stringify(state));
+        
         recommendState.recommend=action.payload.data;
         return recommendState
     },
     [handleAdd]:(state,action)=>{
         let addState=JSON.parse(JSON.stringify(state));
-        addState.goodsList[action.payload.index].num++;
+        // addState.goodsList[action.payload.index].num++;
+        let cart=JSON.parse(sessionStorage.getItem("cart"))
+        cart[action.payload.index].num++;
+        sessionStorage.setItem("cart",JSON.stringify(cart))
         return addState
     },
     [handleReduce]:(state,action)=>{
         let reduceState=JSON.parse(JSON.stringify(state));
-        if(reduceState.goodsList[action.payload.index].num<=1){
-            reduceState.goodsList[action.payload.index].num=1;
+        let cart=JSON.parse(sessionStorage.getItem("cart"))
+        if(cart[action.payload.index].num<=1){
+            cart[action.payload.index].num=1;
+            sessionStorage.setItem("cart",JSON.stringify(cart))
         }else{
-            reduceState.goodsList[action.payload.index].num--;
+            cart[action.payload.index].num--
+            sessionStorage.setItem("cart",JSON.stringify(cart))
         }
         return reduceState
     },
@@ -86,6 +75,9 @@ export default handleActions({
     [handleDel]:(state,action)=>{
         let delState=JSON.parse(JSON.stringify(state));
         delState.goodsList.splice(action.payload.index,1);
+        let cart=JSON.parse(sessionStorage.getItem("cart"))
+        cart.splice(action.payload.index,1)
+        sessionStorage.setItem("cart",JSON.stringify(cart))
         return delState
     }
 },defaultState)
