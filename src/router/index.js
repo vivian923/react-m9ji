@@ -1,4 +1,4 @@
-import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail,TopLine} from "../pages"
+import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail,LimitTime,TopLine,Sort} from "../pages"
 
 export const TabBarRoute=[
     {
@@ -15,6 +15,15 @@ export const TabBarRoute=[
                 path:"/home/recommend",
                 component:Recommend,
                 text:"推荐",
+                meta:{
+                    flag:true,
+                    requiredAuth:false
+                }
+            },
+            {
+                path:"/home/limitTime",
+                component:LimitTime,
+                text:"限时购",
                 meta:{
                     flag:true,
                     requiredAuth:false
@@ -128,7 +137,15 @@ export const NoTabBarRoute=[
             requiredAuth:false
         },
     },
-    
+
+    {
+        path:"/sort",
+        component:Sort,
+        meta:{
+            flag:false,
+            requiredAuth:false
+        },
+    }
     
 ]
 

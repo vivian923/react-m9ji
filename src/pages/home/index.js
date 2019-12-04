@@ -15,7 +15,7 @@ class Home extends React.Component {
                 },
                 {
                     text:"限时购",
-                    path:"sss"
+                    path:"/home/limitTime"
                 },
                 {
                     text:"拼团购",

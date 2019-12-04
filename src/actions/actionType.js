@@ -16,3 +16,6 @@ export const handleNews="NEWS"
 //分类列表
 export const handleClassifyList="CLASSIFY_LIST"
 
+//抢购
+export const handlelimitTimeList="LIMIT_TIME_LIST"
+

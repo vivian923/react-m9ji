@@ -1,11 +1,16 @@
 import React from "react";
+import { LoadingCon } from "./styled"
 
-class Loading extends React.Component{
-    render(){
+class Loading extends React.Component {
+    render() {
         return (
-            <div>
-                <h2>Loading...............</h2>
-            </div>
+            <LoadingCon>
+                <div className="dot white"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+            </LoadingCon>
         )
     }
 }

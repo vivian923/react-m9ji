@@ -61,6 +61,17 @@ export const Detail = Loadable({
     loading:Loading
 })
 
+export const LimitTime = Loadable({
+    loader:()=>import("./limitTime"),
+    loading:Loading
+})
+
+
+export const Sort = Loadable({
+    loader:()=>import("./sort"),
+    loading:Loading
+})
+
 export const TopLine = Loadable({
     loader:()=>import("./topLine"),
     loading:Loading
