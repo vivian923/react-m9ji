@@ -1,4 +1,4 @@
-import {Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail,LimitTime,TopLine,Sort} from "../pages"
+import {ImgUrl,Pwd,Recommend,Search,Spelldeals,Recycle,Home,Classify,Message,Cart,Mine,Login,Register,Detail,LimitTime,TopLine,Sort} from "../pages"
 
 export const TabBarRoute=[
     {
@@ -141,6 +141,22 @@ export const NoTabBarRoute=[
     {
         path:"/sort/:inputVal",
         component:Sort,
+        meta:{
+            flag:false,
+            requiredAuth:false
+        },
+    },
+    {
+        path:"/pwd",
+        component:Pwd,
+        meta:{
+            flag:false,
+            requiredAuth:false
+        },
+    },
+    {
+        path:"/imgUrl",
+        component:ImgUrl,
         meta:{
             flag:false,
             requiredAuth:false

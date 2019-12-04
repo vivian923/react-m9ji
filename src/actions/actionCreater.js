@@ -1,4 +1,4 @@
-import {handleNews,handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList,handleSortList} from "./actionType"
+import {handleNews,handleClassifyList,handleDel,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList,handleSortList} from "./actionType"
 import {createAction} from "redux-actions"
 import {recommendApi,floors,spell,brandApi,classifyApi,robListApi} from "api/recommend"
 import {SortListApi} from "api/sort"
@@ -99,12 +99,6 @@ export const reduceAction=(index)=>{
     }))
     return (dispatch)=>{
         dispatch(reduceAction(index))
-    }
-}
-export const sumAction=()=>{
-    let sumAction=createAction(handleSum)
-    return (dispatch)=>{
-        dispatch(sumAction())
     }
 }
 

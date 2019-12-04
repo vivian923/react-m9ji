@@ -6,7 +6,7 @@ class ReactSwiperExample extends PureComponent {
     this.state = {
       swiperOptions: {
         preloadImages: true,
-        autoplay:2000,
+        autoplay:3000,
         showPagination: true,
         loop:true,
         autoplayDisableOnInteraction :false

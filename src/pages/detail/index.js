@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Header, Main, Footer } from "./styled"
-
 import { detailApi } from "api/detail"
 import {withRouter} from "react-router-dom"
 @withRouter
@@ -117,8 +116,20 @@ class Detail extends React.Component {
             img,title,config,price,id,flag,num
         }
         let cart =sessionStorage.getItem("cart")?JSON.parse(sessionStorage.getItem("cart")):[]
-        cart.push(info)
-        sessionStorage.setItem("cart",JSON.stringify(cart))
+        var sign=true;
+        for(var i=0;i<cart.length;i++){
+            if(cart[i].title===info.title){
+                cart[i].num++;
+                sessionStorage.setItem("cart",JSON.stringify(cart));
+                sign=false;
+                break;
+            }
+        }
+        if(sign){
+            cart.push(info)
+            sessionStorage.setItem("cart",JSON.stringify(cart))
+        }
+        
     }
     handlePush(){
         this.props.history.push("/cart")

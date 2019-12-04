@@ -79,8 +79,14 @@ class Login extends React.Component {
         let username=this.refs.account.value;
         let pwd=this.refs.pwd.value;
         let data=await loginNode(username,pwd)
+        console.log(data)
         if(data.data.code===1){
             alert("登录成功")
+            sessionStorage.setItem("users",JSON.stringify({
+                username:data.data.data.username,
+                id:data.data.data._id
+            }))
+            sessionStorage.setItem('img',data.data.data.urlPic)
             console.log(this.props.location.params)
             let path=this.props.location.params?this.props.location.params.from:"/home";
             this.props.history.push(path)

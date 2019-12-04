@@ -40,14 +40,14 @@ class Home extends React.Component {
         let {list}=this.state
         return (
                 <Header>
-                    <div className="searchbox" onClick={this.handleSearch.bind(this)}>
+                    <div className="searchbox" >
                         <div className="search">
                             <div  className="city">
                                 <span>昌平区</span>
                                 <i className="iconfont">&#xe611;</i>
                             </div>
                             <div className="line"></div>
-                            <div  className="searchbtn">
+                            <div  className="searchbtn" onClick={this.handleSearch.bind(this)}>
                                 <i className="iconfont">&#xe622;</i>
                                 <span>5G手机</span>
                             </div>

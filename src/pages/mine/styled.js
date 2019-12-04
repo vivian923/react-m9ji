@@ -33,6 +33,29 @@ export const Header = styled.div`
         color:#fff;
         opacity:0;
     }
+    .proper{
+        width:.8rem;
+        height:1.5rem;
+        background:#fff;
+        position:absolute;
+        right:0;
+        top:.42rem;
+        box-shadow: 0 0 10px #e1e1e1;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+        padding:0 .1rem;
+        span{
+            height:.4rem;
+            border-bottom:1px solid #eee;
+            font-size:.16rem;
+            text-align:center;
+            line-height:.4rem;
+        }
+        span:nth-child(3){
+            border-bottom:0
+        }
+    }
     .shezhi{
         width:.58rem;
         height:.44rem;

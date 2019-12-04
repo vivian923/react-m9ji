@@ -22,7 +22,7 @@ export const Cart = Loadable({
 })
 
 export const Mine = Loadable({
-    loader:()=>import("./mine"),
+    loader:()=>import("./mine/index"),
     loading:Loading
 })
 
@@ -74,5 +74,15 @@ export const Sort = Loadable({
 
 export const TopLine = Loadable({
     loader:()=>import("./topLine"),
+    loading:Loading
+})
+
+export const Pwd = Loadable({
+    loader:()=>import("./pwd"),
+    loading:Loading
+})
+
+export const ImgUrl = Loadable({
+    loader:()=>import("./imgUrl"),
     loading:Loading
 })

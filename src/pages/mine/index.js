@@ -1,29 +1,45 @@
 import React from "react"
 import { Main,Header, Content} from "./styled";
-
+import {withRouter} from "react-router-dom"
+@withRouter
 class Mine extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            isShow:false,
+            name:sessionStorage.getItem("users")?JSON.parse(sessionStorage.getItem("users")).username:"用户名",
+            img:sessionStorage.getItem("img")?sessionStorage.getItem("img"):"https://img2.ch999img.com/newstatic/1381/d43534a496b0c8.png.webp"
+        }
+    }
     render(){
+        let {name,img,isShow}=this.state
         return(
             <Main>
                 <Header>
-                    <div className="back">
+                    <div className="back" onClick={this.handleBack.bind(this)}>
                         <i className="iconfont">&#xe609;</i>
                     </div>
                     <h2>18624866507</h2>
-                    <div className="shezhi">
+                    <div className="shezhi" onClick={this.handleShow.bind(this)}>
                         <span>设置</span>
                         <i className="iconfont">&#xe6c7;</i>
                     </div>
+                    <div className="proper" style={{opacity:isShow?'1':'0'}}>
+                        <span onClick={this.handleChangePwd.bind(this)}>修改密码</span>
+                        <span onClick={this.handleChangeImg.bind(this)}>修改头像</span>
+                        <span onClick={this.handleExit.bind(this)}>退出登陆</span>
+                    </div>
+                    
                 </Header>
                 <Content>
                     <div className="bg"></div>
                     <div className="info">
                         <div className="personvip">
                             <a href="true">
-                                <img src="https://img2.ch999img.com/newstatic/1381/d43534a496b0c8.png.webp" alt="true"/>
+                                <img src={img} alt="true"/>
                             </a>
                             <div className="pinfo">
-                                <p>18624866507</p>
+                                <p>{name}</p>
                                 <div className="vip">
                                     <span>
                                         <img src="https://img2.ch999img.com/newstatic//916/76b7bebb5d76d8.png.webp" alt="true"/>
@@ -198,6 +214,33 @@ class Mine extends React.Component{
                 </Content>
             </Main>
         )
+    }
+    handleShow(){
+        this.setState({
+            isShow:!this.state.isShow
+        })
+    }
+    handleBack(){
+        this.props.history.goBack()
+    }
+    handleExit(){
+        this.setState({
+            isShow:!this.state.isShow
+        })
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        this.props.history.push("/login")
+    }
+    handleChangePwd(){
+        this.setState({
+            isShow:!this.state.isShow
+        })
+        this.props.history.push("/pwd")
+    }
+    handleChangeImg(){
+        this.setState({
+            isShow:!this.state.isShow
+        })
+        this.props.history.push("/imgUrl")
     }
 }
 

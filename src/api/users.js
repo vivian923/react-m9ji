@@ -15,3 +15,20 @@ export const registerNode=(username,password)=>http.post({
         password:password
     }
 })
+
+export const changePwd=(username,oPwd,nPwd)=>http.post({
+    url:"/users/changePwd",
+    data:{
+            username,
+            oPwd,
+            nPwd
+    }
+})
+
+export const changeImg=(id,photoLogo)=>http.post({
+    url:"/users/photo",
+    data:{
+        id,
+        photoLogo   
+    }
+})
