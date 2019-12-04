@@ -8,7 +8,6 @@ export const handleCheckedItem="CHECKED_ITEM"
 export const handleCartRecommend="RECOMMEND"
 export const handleAdd="HANDLE_ADD"
 export const handleReduce="HANDLE_REDUCE"
-export const handleSum="SUM"
 export const handleDel="DEL"
 export const handleNews="NEWS"
 

@@ -96,8 +96,6 @@ class Cart extends React.Component {
     }
     componentDidMount() {
         this.props.handleCartRecommend()
-        this.props.handleSum()
-
     }
     handleBack(){
         this.props.history.goBack()

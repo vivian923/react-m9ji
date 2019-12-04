@@ -1,4 +1,4 @@
-import {checkedAction,checkedItemAction,cartRecommendAction,addAction,reduceAction,sumAction,delAction} from "../../actions/actionCreater"
+import {checkedAction,checkedItemAction,cartRecommendAction,addAction,reduceAction,delAction} from "../../actions/actionCreater"
 export const mapStateToProps=(state)=>({
     selectAll:state.cart.selectAll,
     goodsList:state.cart.goodsList,
@@ -10,28 +10,21 @@ export const mapStateToProps=(state)=>({
 export const mapDispatchToProps=(dispatch)=>({
     handleChange(){
         dispatch(checkedAction())
-        dispatch(sumAction())
+       
     },
     handleChangeItem(index){
         dispatch(checkedItemAction(index))
-        dispatch(sumAction())
     },
     handleCartRecommend(){
         dispatch(cartRecommendAction())
     },
     handleAdd(index){
         dispatch(addAction(index))
-        dispatch(sumAction())
     },
     handleReduce(index){
         dispatch(reduceAction(index))
-        dispatch(sumAction())
-    },
-    handleSum(){
-        dispatch(sumAction())
     },
     handleDel(index){
         dispatch(delAction(index))
-        dispatch(sumAction())
     }
 })

@@ -2,7 +2,8 @@ import React from "react"
 import { Section } from "./styled"
 import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
-
+import {withRouter} from "react-router-dom"
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 class Search extends React.Component {
 
@@ -20,7 +21,7 @@ class Search extends React.Component {
                             </div>
                         </form>
                     </div>
-                    <a className="searchbtn" href="true">搜索</a>
+                    <div className="searchbtn" onClick={this.handlePush.bind(this)}>搜索</div>
                 </header>
                 <div className="guesslist" style={{display:isShow===true?'block':'none'}}>
                     {
@@ -66,6 +67,9 @@ class Search extends React.Component {
 
     componentDidMount() {
         this.props.handleHistory()
+    }
+    handlePush(){
+        this.props.history.push("./sort")
     }
 }
 

@@ -2,9 +2,7 @@ import React from "react"
 import {TabBarRoute} from "../../router"
 import {NavLink} from "react-router-dom"
 import {TabBox} from "./styled"
-import {connect} from "react-redux"
-import {mapStateToProps,mapDispatchToProps} from "./mapStore"
-@connect(mapStateToProps,mapDispatchToProps)
+
 class TabBar extends React.Component{
     render(){
         let goodsList=sessionStorage.getItem("cart")?JSON.parse(sessionStorage.getItem("cart")):[]
@@ -33,9 +31,6 @@ class TabBar extends React.Component{
                 </ul>
             </TabBox>
         )
-    }
-    componentDidMount(){
-        this.props.handleSum()
     }
 }
 
