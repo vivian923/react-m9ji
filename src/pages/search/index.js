@@ -2,6 +2,8 @@ import React from "react"
 import { Section } from "./styled"
 import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
+import {withRouter} from "react-router-dom"
+@withRouter
 
 @connect(mapStateToProps, mapDispatchToProps)
 class Search extends React.Component {
@@ -16,11 +18,11 @@ class Search extends React.Component {
                         <form>
                             <i className="iconfont">&#xe622;</i>
                             <div>
-                                <input type="text" placeholder="5G手机" onInput={this.props.handleSearch.bind(this)} />
+                                <input type="text" placeholder="5G手机" ref="searchVal" onInput={this.props.handleSearch.bind(this)} />
                             </div>
                         </form>
                     </div>
-                    <a className="searchbtn" href="true">搜索</a>
+                    <div className="searchbtn" onClick={this.handleFind.bind(this)}>搜索</div>
                 </header>
                 <div className="guesslist" style={{display:isShow===true?'block':'none'}}>
                     {
@@ -66,6 +68,10 @@ class Search extends React.Component {
 
     componentDidMount() {
         this.props.handleHistory()
+    }
+    handleFind(){
+        let inputVal=this.refs.searchVal.value
+        this.props.history.push("/sort/"+inputVal)
     }
 }
 

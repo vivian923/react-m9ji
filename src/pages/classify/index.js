@@ -2,6 +2,9 @@ import React from "react"
 import {Main, Header, Connect} from "./styled"
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore"
+import {withRouter} from "react-router-dom"
+@withRouter
+@withRouter
 @connect(mapStateToProps,mapDispatchToProps)
 
 class Classify extends React.Component{
@@ -17,10 +20,10 @@ class Classify extends React.Component{
         return(
             <Main>
                 <Header>
-                    <div className="goBack">
+                    <div className="goBack" onClick={this.handleBack.bind(this)}>
                         <i className="iconfont">&#xe609;</i>
                     </div>
-                    <div className="finds">
+                    <div className="finds" onClick={this.handleFind.bind(this)}>
                         <i className="iconfont">&#xe622;</i>
                         <span>5G手机</span>
                     </div>
@@ -74,6 +77,12 @@ class Classify extends React.Component{
                 </Connect>
             </Main>
         )
+    }
+    handleBack(){
+        this.props.history.goBack()
+    }
+    handleFind(){
+        this.props.history.push("/search")
     }
     handleCheckout(index){
         this.setState({

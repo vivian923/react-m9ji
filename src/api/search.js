@@ -1,7 +1,7 @@
 import http from "utils/request"
 
 export const historyApi =()=>http.get({
-    url:'/ajax//web/api/search/hotAndHistorySearch/v1',
+    url:'/ajax/web/api/search/hotAndHistorySearch/v1',
     data:{
         history:'',
         searchType:1

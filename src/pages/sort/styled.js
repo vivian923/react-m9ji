@@ -54,6 +54,9 @@ export const Nav = styled.div`
         text-align:center;
         line-height:.44rem;
     }
+    .active{
+        color:#F21C1C;
+    }
 `
 
 export const Container = styled.div`
@@ -86,7 +89,7 @@ export const Container = styled.div`
                 height: .21rem;
                 overflow-x:auto;
                 section{
-                    width:130%;
+                    width:200%;
                     display:flex;
                     span{
                         display:inline-block;

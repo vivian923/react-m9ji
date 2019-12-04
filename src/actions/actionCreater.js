@@ -1,6 +1,7 @@
-import {handleNews,handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList} from "./actionType"
+import {handleNews,handleClassifyList,handleDel,handleSum,handleReduce,handleGoodsList,handleSpell,handleBrand,handleHistory,handleSearch,handleChecked,handleCheckedItem,handleCartRecommend,handleAdd,handlelimitTimeList,handleSortList} from "./actionType"
 import {createAction} from "redux-actions"
 import {recommendApi,floors,spell,brandApi,classifyApi,robListApi} from "api/recommend"
+import {SortListApi} from "api/sort"
 import {historyApi,searchApi} from "api/search"
 import {cartRecommendApi} from "api/cart"
 import {topLineApi} from "api/topLine"
@@ -138,5 +139,15 @@ export const newsAction=(page)=>{
         let data = await topLineApi(page)
         let info=data.data.container.floor[1]?data.data.container.floor[1].content:data.data.container.floor[0].content
         dispatch(newsAction(info))
+    }
+}
+
+export const SortAction=(coll,word)=>{
+    let SortListAction = createAction(handleSortList,(data)=>({data}))
+
+    return async (dispatch)=>{
+        let data = await SortListApi(coll,word)
+        let SortList=data.data.product.list
+        dispatch(SortListAction(SortList))
     }
 }

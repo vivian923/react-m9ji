@@ -139,7 +139,7 @@ export const NoTabBarRoute=[
     },
 
     {
-        path:"/sort",
+        path:"/sort/:inputVal",
         component:Sort,
         meta:{
             flag:false,

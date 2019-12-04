@@ -9,6 +9,7 @@ export const Main = styled.div`
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow:hidden;
 `
 export const Header = styled.div`
     height:.44rem;

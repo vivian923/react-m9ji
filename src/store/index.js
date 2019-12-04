@@ -7,6 +7,7 @@ import cart from "./reducers/cart"
 import classify from "./reducers/classify";
 import rob from "./reducers/rob";
 import topLine from "./reducers/topLine"
+import sort from "./reducers/sort"
 import {composeWithDevTools} from "redux-devtools-extension"
 import reduxThunk from "redux-thunk"
 const reducer = combineReducers({
@@ -17,7 +18,8 @@ const reducer = combineReducers({
     cart,
     classify,
     rob,
-    topLine
+    topLine,
+    sort
 })
 
 const store =createStore(reducer,composeWithDevTools(applyMiddleware(reduxThunk)))
