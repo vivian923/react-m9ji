@@ -42,6 +42,7 @@ class ImgUrl extends React.Component {
   let id=JSON.parse(sessionStorage.getItem("users")).id
   let photoLogo =files[0].url
     let data=await changeImg(id,photoLogo)
+    console.log(files)
     this.setState({
       files,
       photoLogo:photoLogo,
